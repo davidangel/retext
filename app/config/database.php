@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'retext',
 			'username'  => 'retext',
-			'password'  => '3ZGKyXXWtu5xGbU6',
+			'password'  => 'PASSWORD',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

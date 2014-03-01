@@ -2,7 +2,7 @@ Retext
 ======
 
 **Scenario**:
-A company runs TV, radio, youtube, etc.. ad that promotes a particular product or special offer.  The ad’s call-to-action prompts the user to send a text message to a specified phone number and in return they get a link to the special offer.  For example:  Text “Dog Bone” to 865-444-2222 and get a response: http://www.store.petsafe.net/new_super_dog_bone_offer
+A company runs TV, radio, youtube, etc.. ad that promotes a particular product or special offer.  The ad’s call-to-action prompts the user to send a text message to a specified phone number and in return they get a link to the special offer.  For example:  Text “Dog Bone” to 865-444-2222 and get a response: http://test.com/new_super_dog_bone_offer
 
 **Description**:  
 Design, architect, and implement a solution that can fulfill this need.  The solution should allow us to dynamically set text message keywords and associated responses.  The solution should accept incoming text messages and provide the user with an appropriate response message.
