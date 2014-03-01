@@ -7,7 +7,9 @@
 		"laravel/framework": "4.1.*",
         "way/generators": "dev-master",
         "barryvdh/laravel-ide-helper": "1.*",
-        "twilio/sdk": "dev-master"
+        "twilio/sdk": "dev-master",
+        "components/jquery": "2.1.*",
+        "twitter/bootstrap": "3.0.*@dev"
 	},
 	"autoload": {
 		"classmap": [
@@ -27,7 +29,9 @@
 		"post-update-cmd": [
 			"php artisan clear-compiled",
 			"php artisan optimize",
-            "php artisan ide-helper:generate"
+            "php artisan ide-helper:generate",
+            "php artisan asset:publish bootstrap --path=/vendor/twitter/bootstrap/dist",
+            "php artisan asset:publish jquery --path=/vendor/components/jquery"
 		],
 		"post-create-project-cmd": [
 			"php artisan key:generate"
