@@ -1,7 +1,9 @@
 @extends('layout')
 @section('content')
 
-<table class="table table-striped">
+<h1>Keywords/Responses for <strong>(854) 896-2910</strong></h1>
+
+<table class="table table-striped table-bordered">
 	<tr><th>Keyword</th><th>Response</th><th>Modify</th></tr>
 	@foreach ($keywords as $keyword)
 	<tr>
@@ -11,9 +13,7 @@
 			{{ Form::open(array('route' => array('keywords.destroy', $keyword->id), 'method' => 'delete')) }}
 			<button type="submit" href="{{ URL::route('keywords.destroy', $keyword->id) }}" class="btn btn-danger btn-mini">Delete</button>
 			{{ Form::close() }}
-			{{ Form::open(array('route' => array('keywords.edit', $keyword->id), 'method' => 'get')) }}
 			<a href="{{ URL::route('keywords.edit', $keyword->id) }}" class="btn btn-warning btn-mini">Edit</a>
-			{{ Form::close() }}
 		</td>
 	</tr>
 	@endforeach

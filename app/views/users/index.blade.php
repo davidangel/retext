@@ -1,24 +1,36 @@
 @extends('layout')
 @section('content')
 
-<table class="table table-striped">
-	<tr><th>Keyword</th><th>Response</th><th>Modify</th></tr>
-	@foreach ($keywords as $keyword)
-	<tr>
-		<td>{{ $keyword->keyword }}</td>
-		<td>{{ $keyword->response }}</td>
-		<td>
-			{{ Form::open(array('route' => array('keywords.destroy', $keyword->id), 'method' => 'delete')) }}
-			<button type="submit" href="{{ URL::route('keywords.destroy', $keyword->id) }}" class="btn btn-danger btn-mini">Delete</button>
-			{{ Form::close() }}
-			{{ Form::open(array('route' => array('keywords.edit', $keyword->id), 'method' => 'get')) }}
-			<a href="{{ URL::route('keywords.edit', $keyword->id) }}" class="btn btn-warning btn-mini">Edit</a>
-			{{ Form::close() }}
-		</td>
-	</tr>
-	@endforeach
-</table>
+<h1>All Users</h1>
 
-<a href="{{ URL::route('keywords.create') }}" class="btn btn-success btn-mini">Create New</a>
+<p>{{ link_to_route('users.create', 'Add new user') }}</p>
+
+@if ($users->count())
+	<table class="table table-striped table-bordered">
+			<tr>
+				<th>Username</th>
+				<th>Email</th>
+				<th colspan="2">Modify</th>
+			</tr>
+
+			@foreach ($users as $user)
+				<tr>
+					<td>{{{ $user->username }}}</td>
+					<td>{{{ $user->email }}}</td>
+                    <td>
+                        {{ Form::open(array('method' => 'DELETE', 'route' => array('users.destroy', $user->id))) }}
+                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+                        {{ Form::close() }}
+
+						{{ link_to_route('users.edit', 'Edit', array($user->id), array('class' => 'btn btn-warning')) }}
+                    </td>
+				</tr>
+			@endforeach
+	</table>
+@else
+	There are no users
+@endif
+
+{{ link_to_route('users.create', 'Add New User', null, ['class'=>'btn btn-success btn-mini']) }}
 
 @stop

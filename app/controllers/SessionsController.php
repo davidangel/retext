@@ -33,10 +33,13 @@ class SessionsController extends BaseController {
 		]);
 
 		// successful login
-		if($attempt_login_username || $attempt_login_email) return Redirect::intended('/')->with('flash_message', 'You have successfully logged in.');
+		if($attempt_login_username || $attempt_login_email) {
+			Twilio::message('+18655995614', 'Someone logged into Retext.');
+			return Redirect::intended('/')->with('flash_message', 'You have successfully logged in.');
+		}
 
 		// failed login
-		return Redirect::home()->with('flash_message', 'Invalid credentials.')->with('flash_message', 'Invalid credentials.');
+		return Redirect::route('login')->with('flash_message', 'Invalid credentials.');
 
 	}
 

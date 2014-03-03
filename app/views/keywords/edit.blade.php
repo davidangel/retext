@@ -3,7 +3,7 @@
 
 <h2>Update Keyword/Response</h2>
 
-{{ Form::model($keyword, array('route' => array('keywords.update', $keyword->id), 'method' => 'PUT')) }}
+{{ Form::model($keyword, array('method' => 'PATCH', 'route' => array('keywords.update', $keyword->id))) }}
 
 <table class="table">
 	<tr>
@@ -16,7 +16,8 @@
 	</tr>
 	<tr>
 		<td colspan="3">
-			{{ Form::submit('Save') }}
+			{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
+			{{ link_to_route('keywords.index', 'Cancel', $keyword->id, array('class' => 'btn')) }}
 		</td>
 	</tr>
 

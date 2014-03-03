@@ -13,7 +13,7 @@
 
 Route::get('/', ['as'=>'home', 'uses'=>'KeywordsController@index'])->before('auth');
 
-Route::get('login', 'SessionsController@create');
+Route::get('login', ['uses'=>'SessionsController@create', 'as'=>'login']);
 Route::get('logout', 'SessionsController@destroy');
 
 Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store', 'destroy']]);
@@ -21,6 +21,7 @@ Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store',
 Route::group(array('before'=>'auth'), function() {
 
 	Route::resource('keywords', 'KeywordsController');
+	Route::resource('users', 'UsersController');
 
 });
 

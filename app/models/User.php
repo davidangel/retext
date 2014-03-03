@@ -1,9 +1,13 @@
 <?php
 
-use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableInterface;
+class User extends Eloquent implements \Illuminate\Auth\UserInterface {
+	protected $guarded = array();
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+	public static $rules = array(
+		'username' => 'required|unique',
+		'email' => 'required|unique',
+		'password' => 'required'
+	);
 
 	/**
 	 * The database table used by the model.
@@ -48,5 +52,4 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->email;
 	}
-
 }
