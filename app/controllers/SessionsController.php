@@ -32,12 +32,11 @@ class SessionsController extends BaseController {
 			'password' => $input['password']
 		]);
 
-
-
+		// successful login
 		if($attempt_login_username || $attempt_login_email) return Redirect::intended('/')->with('flash_message', 'You have successfully logged in.');
 
 		// failed login
-		return Redirect::home()->with('flash_message', 'Invalid credentials.')->withInput();
+		return Redirect::home()->with('flash_message', 'Invalid credentials.')->with('flash_message', 'Invalid credentials.');
 
 	}
 

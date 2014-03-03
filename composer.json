@@ -7,9 +7,10 @@
 		"laravel/framework": "4.1.*",
         "way/generators": "dev-master",
         "barryvdh/laravel-ide-helper": "1.*",
-        "twilio/sdk": "dev-master",
         "components/jquery": "2.1.*",
-        "twitter/bootstrap": "3.0.*@dev"
+        "twitter/bootstrap": "3.0.*@dev",
+        "twilio/sdk": "dev-master",
+        "travisjryan/twilio": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

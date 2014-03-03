@@ -19,5 +19,9 @@ Route::get('logout', 'SessionsController@destroy');
 Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store', 'destroy']]);
 
 Route::group(array('before'=>'auth'), function() {
+
 	Route::resource('keywords', 'KeywordsController');
+
 });
+
+Route::post('twilio', 'TwilioController@index');

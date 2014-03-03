@@ -11837,3 +11837,33 @@ class View extends Illuminate\Support\Facades\View{
 
 }
 
+class Twilio extends Travisjryan\Twilio\Facades\Twilio{
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function __construct($config){
+		 Travisjryan\Twilio\Twilio::__construct($config);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function message($to, $message, $from = null){
+		 Travisjryan\Twilio\Twilio::message($to, $message, $from);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function call($to, $url, $options = array(), $from = null){
+		 Travisjryan\Twilio\Twilio::call($to, $url, $options, $from);
+	 }
+
+}
+
